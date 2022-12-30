@@ -20,7 +20,6 @@
 // Додасть елементу клас item.
 // Після чого, вставить усі <li> за одну операцію у список ul#ingredients.
 
-
 const ul = document.getElementById("ingredients");
 const ingredients = [
   "Potatoes",
@@ -31,13 +30,15 @@ const ingredients = [
   "Condiments",
 ];
 //* for...of
-// for (const ingredient of ingredients){
-//   const li = document.createElement("li")
-//   li.textContent = ingredient;
-//   li.classList.add("item");
-//   ul.append(li)
-// }
-
+const items = [];
+for (let ingredient of ingredients) {
+  console.log("🚀 ~ ingredient", ingredient);
+  const li = document.createElement("li");
+  li.textContent = ingredient;
+  li.classList.add("item");
+  items.push(li);
+}
+ul.append(...items);
 //* map
 // const liEl = ingredients
 //   .map((ingredient) => `<li class="item">${ingredient}</li>`)
@@ -49,9 +50,9 @@ const ingredients = [
 
 //* reduce
 
-const liCon = ingredients.reduce(
-  (acc, ingredient) => (acc += `<li class="item">${ingredient}</li>`),
-  ""
-);
-console.log("🚀 ~ liCon", liCon);
-ul.insertAdjacentHTML("beforeend", liCon);
+// const liCon = ingredients.reduce(
+//   (acc, ingredient) => (acc += `<li class="item">${ingredient}</li>`),
+//   ""
+// );
+// console.log("🚀 ~ liCon", liCon);
+// ul.insertAdjacentHTML("beforeend", liCon);
